@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametric Insurance Education - Case Study | Roto Ink</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.7; }
+        .back-nav { background: #0f172a; padding: 15px 20px; border-bottom: 1px solid rgba(59, 130, 246, 0.2); }
+        .back-btn { color: #60a5fa; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+        .back-btn:hover { color: #93c5fd; transform: translateX(-5px); }
+        .hero-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
+        .hero-section::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; }
+        .hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+        .case-label { display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; margin-bottom: 20px; }
+        h1 { font-size: 3rem; margin-bottom: 25px; color: white; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.2rem; color: rgba(255, 255, 255, 0.95); max-width: 700px; margin: 0 auto 40px; }
+        .overview-box { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 35px; border-radius: 16px; margin-top: 50px; text-align: left; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .overview-box h3 { font-size: 1.5rem; margin-bottom: 15px; color: white; }
+        .overview-box p { font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); line-height: 1.8; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .article-section { background: #1e293b; margin: 60px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+        .article-number { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); padding: 15px 30px; font-size: 1rem; font-weight: 600; letter-spacing: 1px; color: white; }
+        .article-content { padding: 50px; }
+        .article-title { font-size: 2.2rem; color: #60a5fa; margin-bottom: 30px; line-height: 1.3; }
+        .article-text { font-size: 1.15rem; color: #cbd5e1; line-height: 1.9; margin-bottom: 20px; }
+        .article-text strong { color: #60a5fa; }
+        .highlight-quote { background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; padding: 25px 30px; margin: 30px 0; border-radius: 8px; }
+        .highlight-quote p { font-size: 1.25rem; color: #93c5fd; font-style: italic; margin: 0; }
+        .visual-container { background: white; border-radius: 16px; padding: 20px; margin: 40px 0; text-align: center; }
+        .visual-container img { max-width: 100%; height: auto; border-radius: 12px; }
+        .visual-label { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
+        .bullet-list { list-style: none; padding: 0; margin: 25px 0; }
+        .bullet-list li { padding: 15px 0 15px 40px; position: relative; font-size: 1.1rem; color: #cbd5e1; }
+        .bullet-list li::before { content: '→'; position: absolute; left: 0; color: #3b82f6; font-size: 1.5rem; font-weight: bold; }
+        .country-example { background: rgba(59, 130, 246, 0.08); padding: 25px 30px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #3b82f6; }
+        .country-example h4 { font-size: 1.4rem; color: #60a5fa; margin-bottom: 12px; }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+        .comparison-box { padding: 30px; border-radius: 12px; border: 2px solid; }
+        .old-way { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; }
+        .old-way h4 { color: #ef4444; margin-bottom: 15px; font-size: 1.3rem; }
+        .new-way { background: rgba(34, 197, 94, 0.1); border-color: #22c55e; }
+        .new-way h4 { color: #22c55e; margin-bottom: 15px; font-size: 1.3rem; }
+        .final-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 80px 20px; text-align: center; margin-top: 80px; }
+        .final-section h2 { font-size: 2.5rem; color: #60a5fa; margin-bottom: 25px; }
+        .final-section p { font-size: 1.2rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
+        .skills-showcase { background: #1e293b; padding: 50px; border-radius: 16px; margin: 60px auto; max-width: 1000px; }
+        .skills-showcase h3 { font-size: 2rem; color: #60a5fa; margin-bottom: 30px; text-align: center; }
+        .skills-tags { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .skill-tag { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white; padding: 12px 25px; border-radius: 30px; font-size: 1rem; font-weight: 500; }
+        .cta-button { display: inline-block; padding: 15px 35px; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4); }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .article-content { padding: 30px 25px; }
+            .article-title { font-size: 1.7rem; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="case-label">EDUCATIONAL CASE STUDY</div>
+            <h1>Making Parametric Insurance Easy to Understand</h1>
+            <p class="hero-subtitle">A 7-part educational series that transforms complex insurance concepts into clear, accessible content</p>
+            
+            <div class="overview-box">
+                <h3>Project Overview</h3>
+                <p>People lose interest the moment a concept sounds too technical. I researched deeply, broke it down, and created simple explanations that made parametric insurance easy for real people to understand.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ARTICLE 1 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 1 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">What Is Parametric Insurance?</h2>
+                
+                <div class="highlight-quote">
+                    <p>Imagine getting covered before things go completely wrong. That's the power of parametric insurance.</p>
+                </div>
+
+                <p class="article-text">
+                    Parametric insurance is a modern type of insurance that pays out automatically when a specific event occurs. No long claims process. No paperwork. No back-and-forth with an agent. If the event happens, you get paid. Instantly.
+                </p>
+
+                <p class="article-text">
+                    Most people hear "insurance" and immediately think of stress, forms to fill, or long waiting periods before a payout is approved. Parametric insurance removes all of that. It's designed to act fast, offering immediate relief the moment a predefined trigger (like a flood level, wind speed, or earthquake magnitude) is recorded.
+                </p>
+
+                <!-- ========== IMAGE 5: What is Parametric Insurance ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">📊 IMAGE 5 - What is Parametric Insurance</div>
+                    <img src="https://i.imgur.com/lzpTIWA.jpg" alt="What is Parametric Insurance">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 2 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 2 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">Why Traditional Insurance Is Slow & Stressful</h2>
+                
+                <p class="article-text">
+                    For those of you who used to walk into an insurance office or sort things out physically, you already know the stress involved. That's traditional insurance for you. The paperwork, queues, follow-ups, and waiting for days before anything gets done.
+                </p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-box old-way">
+                        <h4>❌ The Old Way</h4>
+                        <ul class="bullet-list">
+                            <li>Paperwork</li>
+                            <li>Long queues</li>
+                            <li>Delayed claims</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box new-way">
+                        <h4>✓ The Digital Way</h4>
+                        <ul class="bullet-list">
+                            <li>Instant verification</li>
+                            <li>Zero paperwork</li>
+                            <li>Faster payouts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-quote">
+                    <p>All the pain, paperwork, and back-and-forth? It's time to leave that behind.</p>
+                </div>
+
+                <!-- ========== IMAGE 6: Traditional vs Digital ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">🔄 IMAGE 6 - Traditional vs Digital</div>
+                    <img src="https://i.imgur.com/FSa79cC.jpg" alt="Traditional vs Digital Insurance">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 3 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 3 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">How Parametric Insurance Uses Real-Time Data</h2>
+                
+                <p class="article-text">
+                    Just imagine working with real-time data from trusted sources like satellites, weather stations, rainfall sensors, and many other intelligent tools. What this does is simple: it gives you accuracy.
+                </p>
+
+                <div class="highlight-quote">
+                    <p>Whenever the data shows that a specific event has crossed the agreed threshold, the payout is triggered immediately.</p>
+                </div>
+
+                <ul class="bullet-list">
+                    <li>Intense rainfall</li>
+                    <li>Rising water levels</li>
+                    <li>Strong wind speeds</li>
+                </ul>
+
+                <p class="article-text" style="margin-top: 30px;">
+                    <strong>No human verification. No paperwork. No delay.</strong>
+                </p>
+
+                <!-- ========== IMAGE 7: Real-Time Data ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">📡 IMAGE 7 - Real-Time Data Flow</div>
+                    <img src="https://i.imgur.com/qKOWBlN.jpg" alt="Real-Time Data Flow">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 4 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 4 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">Everyday Examples You Didn't Know Were Parametric</h2>
+                
+                <p class="article-text">
+                    Have you ever been delayed on a flight before while being registered with a flight insurance company? They don't ask you to file complaints. They don't tell you to fill forms. You just get paid.
+                </p>
+
+                <div class="highlight-quote">
+                    <p>The trigger here is the delay time, and it's verified instantly using aviation data. No back-and-forth. No human involvement.</p>
+                </div>
+
+                <p class="article-text">
+                    With parametric insurance, farmers don't need to go to any office to complain about flood, drought, or crop loss. The system uses real-time rainfall data. Once the rainfall crosses (or fails to reach) a specific level, the payout is triggered immediately.
+                </p>
+
+                <!-- ========== IMAGE 4: Real-Life Examples ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">💡 IMAGE 4 - Real-Life Examples</div>
+                    <img src="https://i.imgur.com/tKszATJ.jpg" alt="Real-Life Examples">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 5 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 5 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">How Countries Are Already Using Parametric Insurance</h2>
+                
+                <p class="article-text">
+                    Parametric insurance isn't something that is "coming soon." It's already working in different countries around the world.
+                </p>
+
+                <div class="country-example">
+                    <h4>🇯🇵 Japan: Earthquake Protection</h4>
+                    <p class="article-text">Once seismic sensors detect that earthquake level has crossed the agreed level, payouts are sent immediately.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>🇮🇳 India: Rainfall Cover for Farmers</h4>
+                    <p class="article-text">If rainfall is too much or too little, the system picks it up and payouts are made automatically.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>🇲🇽 Mexico: Hurricane Response</h4>
+                    <p class="article-text">Once wind crosses a certain threshold, emergency funds are released instantly.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>🇰🇪 Kenya: Drought Cover for Herders</h4>
+                    <p class="article-text">If vegetation drops too low, payouts are activated automatically.</p>
+                </div>
+
+                <!-- ========== IMAGE 3: Countries Map ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">🌍 IMAGE 3 - Global Implementation</div>
+                    <img src="https://i.imgur.com/QGiqhUO.jpg" alt="Countries Using Parametric Insurance">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 6 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 6 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">Misconceptions & Challenges of Parametric Insurance</h2>
+                
+                <p class="article-text">
+                    First, understand this: <strong>Parametric insurance doesn't replace traditional insurance.</strong> It actually supports it.
+                </p>
+
+                <div class="country-example">
+                    <h4>⚠️ Basis Risk</h4>
+                    <p class="article-text">When the trigger doesn't match what really happened on ground.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>📡 Data Quality</h4>
+                    <p class="article-text">If data is off, even slightly, payouts can be affected.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>👥 Understanding</h4>
+                    <p class="article-text">Many people still don't fully get how triggers work.</p>
+                </div>
+
+                <!-- ========== IMAGE 2: Misconceptions ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">⚖️ IMAGE 2 - Misconceptions & Challenges</div>
+                    <img src="https://i.imgur.com/6iUm0Om.jpg" alt="Misconceptions and Challenges">
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE 7 -->
+        <div class="article-section">
+            <div class="article-number">ARTICLE 7 OF 7</div>
+            <div class="article-content">
+                <h2 class="article-title">Parametric Insurance in Travel, Health & Logistics</h2>
+                
+                <p class="article-text">
+                    Travel delays, health emergencies, logistics issues — they all require answers fast.
+                </p>
+
+                <div class="country-example">
+                    <h4>✈️ Travel: Flight Delays & Luggage Issues</h4>
+                    <p class="article-text">If your flight is delayed for 2-3 hours? You get an instant payout. No back-and-forth.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>❤️ Health: Real-Time Support</h4>
+                    <p class="article-text">Triggers: heart rate spike, blood pressure, detected fall. The insurance responds immediately.</p>
+                </div>
+
+                <div class="country-example">
+                    <h4>📦 Logistics: Protecting Goods in Motion</h4>
+                    <p class="article-text">If a container rises above required temperature for 10 minutes, payout is triggered automatically.</p>
+                </div>
+
+                <!-- ========== IMAGE 1: Travel, Health, Logistics ========== -->
+                <div class="visual-container">
+                    <div class="visual-label">🚀 IMAGE 1 - Real-World Applications</div>
+                    <img src="https://i.imgur.com/uSgMLu3.jpg" alt="Travel Health Logistics">
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL SECTION -->
+        <div class="final-section">
+            <div class="container">
+                <h2>Project Impact</h2>
+                <p>By breaking down parametric insurance into 7 digestible articles, I transformed a complex financial product into content that everyday people could understand and trust.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="skills-showcase">
+                <h3>Skills Demonstrated</h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">Educational Content Writing</span>
+                    <span class="skill-tag">Complex Concept Simplification</span>
+                    <span class="skill-tag">Insurtech Expertise</span>
+                    <span class="skill-tag">Content Strategy</span>
+                    <span class="skill-tag">Visual Storytelling</span>
+                    <span class="skill-tag">Technical Writing</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 60px 0;">
+                <a href="index.html" class="cta-button">← Back to All Projects</a>
+            </div>
+        </div>
+    </div>
+</body>
+  </html>
