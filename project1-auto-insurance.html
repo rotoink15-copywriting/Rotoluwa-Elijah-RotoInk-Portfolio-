@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Insurance Landing Page - Case Study | Roto Ink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .back-nav {
+            background: #0f172a;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .back-btn {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #93c5fd;
+            transform: translateX(-5px);
+        }
+
+        .case-study-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 16px;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .section {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #0f172a;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .problem-box, .solution-box {
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+
+        .problem-box {
+            background: #fef2f2;
+            border-color: #fca5a5;
+        }
+
+        .problem-box h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .solution-box {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        .solution-box h3 {
+            color: #16a34a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .hero-preview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 40px;
+            border-radius: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .hero-preview::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-preview h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .hero-preview h2::after {
+            display: none;
+        }
+
+        .hero-subtext {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-note {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+        }
+
+        .visual-placeholder {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            padding: 35px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .approach-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .approach-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        .approach-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-preview h2 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    </nav>
+
+    <div class="case-study-container">
+        <div class="header">
+            <h1>Digital-First Insurance Hero Section Optimization</h1>
+            <p>Transforming complex insurance messaging into clear, confident copy that drives conversions</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Client Type</div>
+                    <div class="meta-value">Auto Insurance Startup</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Project Type</div>
+                    <div class="meta-value">Landing Page Optimization</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Result</div>
+                    <div class="meta-value">40% ↑ CTA Clicks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Overview</h2>
+            <p style="font-size: 1.15rem; color: #475569;">
+                A digital auto insurance startup needed clearer messaging to help users understand how digital-first coverage works compared to traditional insurance.
+            </p>
+        </div>
+
+        <div class="problem-solution">
+            <div class="problem-box">
+                <h3>❌ The Problem</h3>
+                <p>Users didn't understand the difference between traditional insurance and digital-first coverage. The page was filled with jargon, unclear benefits, and no strong direction toward conversion.</p>
+            </div>
+            <div class="solution-box">
+                <h3>✓ My Approach</h3>
+                <p>I redesigned the hero section, clarified the value proposition, simplified benefits, and created a clean comparison block supported by a strong CTA flow.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>My Approach</h2>
+            <ul class="approach-list">
+                <li>Redesigned the hero section with a clear, benefit-driven headline</li>
+                <li>Clarified the value proposition in simple, jargon-free language</li>
+                <li>Simplified benefits to focus on user pain points</li>
+                <li>Created a clean comparison block showing digital-first advantages</li>
+                <li>Developed a strong CTA flow that removes friction</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>The Final Copy</h2>
+            
+            <div class="hero-preview">
+                <div class="hero-content">
+                    <h2>Get your auto insurance registered in just 3 minutes. Yes, it's that easy.</h2>
+                    
+                    <p class="hero-subtext">
+                        Welcome to a smarter, digital-first auto insurance experience designed specifically for young drivers like you. No paperwork. No long queues. No stress.
+                    </p>
+                    
+                    <a href="#" class="cta-button">Tap the button and get started</a>
+                    
+                    <p class="final-note">You don't want to miss how simple this really is.</p>
+                </div>
+                
+                <!-- ============================================
+                     AUTO INSURANCE IMAGE - PASTE IMGUR URL HERE
+                     ============================================
+                     This should show: Young person with smartphone + car
+                     
+                     HOW TO ADD:
+                     1. Go to Imgur and find this image
+                     2. Right-click → Copy image address
+                     3. Make sure the link ends with .jpg or .png
+                     4. Paste it in the src="..." below
+                ============================================ -->
+                <div class="visual-placeholder">
+                    <img src="https://i.imgur.com/1e6zGVH.jpg" alt="Digital Auto Insurance">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Results</h2>
+            <p style="font-size: 1.15rem; color: #475569; margin-bottom: 30px;">
+                The simplified messaging reduced confusion, improved engagement on the hero section, and helped users instantly grasp the benefits.
+            </p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="result-number">40%</span>
+                    <span class="result-label">Increase in CTA Clicks</span>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">↓</span>
+                    <span class="result-label">Reduced Abandoned Registrations</span>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">3min</span>
+                    <span class="result-label">Clear Time Expectation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills-tags">
+                <span class="skill-tag">Landing Page Copy</span>
+                <span class="skill-tag">SaaS Messaging</span>
+                <span class="skill-tag">Simplifying Complex Products</span>
+                <span class="skill-tag">Value Proposition</span>
+                <span class="skill-tag">CTA Optimization</span>
+                <span class="skill-tag">Insurtech Writing</span>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1.1rem; color: #475569; font-style: italic;">
+                This project involved explaining a SaaS-based insurance platform to non-technical users, translating industry jargon into clear benefits that drive action.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="index.html" class="cta-button" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white;">← Back to All Projects</a>
+        </div>
+    </div>
+</body>
+  </html>
