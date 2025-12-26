@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Onboarding - Case Study | Roto Ink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .back-nav {
+            background: #0f172a;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .back-btn {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #93c5fd;
+            transform: translateX(-5px);
+        }
+
+        .case-study-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 16px;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .section {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #0f172a;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .problem-box, .solution-box {
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+
+        .problem-box {
+            background: #fef2f2;
+            border-color: #fca5a5;
+        }
+
+        .problem-box h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .solution-box {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        .solution-box h3 {
+            color: #16a34a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .demo-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .demo-section h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .demo-section h2::after {
+            display: none;
+        }
+
+        .demo-instruction {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .phone-mockup-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-mockup-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            padding: 35px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    </nav>
+
+    <div class="case-study-container">
+        <div class="header">
+            <h1>Reducing Onboarding Drop-Offs for a Micro-Health Insurtech Startup</h1>
+            <p>Simplifying ID verification through clearer microcopy and user guidance</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Client Type</div>
+                    <div class="meta-value">Health Insurance Startup</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Challenge</div>
+                    <div class="meta-value">Step 2 Drop-offs</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Solution</div>
+                    <div class="meta-value">UX Copy Optimization</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Overview</h2>
+            <p style="font-size: 1.15rem; color: #475569;">
+                During onboarding, most users dropped off at Step 2. After reviewing the flow, I found that the instructions were unclear and too technical, making it hard for users to understand which documents were required. This created friction and uncertainty, leading to a major drop in completed registrations. The client needed clearer, more reassuring microcopy to guide users through verification.
+            </p>
+        </div>
+
+        <div class="problem-solution">
+            <div class="problem-box">
+                <h3>❌ The Problem</h3>
+                <p>Users dropped off at step 2 during onboarding because they didn't understand what documents were needed. Technical language and unclear instructions created friction and uncertainty.</p>
+            </div>
+            <div class="solution-box">
+                <h3>✓ My Approach</h3>
+                <p>I created clearer microcopy with step-by-step guidance and reassurance messaging. The goal was to reduce confusion, remove technical barriers, and help users move smoothly through the verification stage.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Solution: UI/UX Design</h2>
+            
+            <div class="demo-section">
+                <h2>Onboarding Screen Design</h2>
+                <p class="demo-instruction">Clear microcopy + intuitive design = reduced friction</p>
+                
+                <!-- ============================================
+                     ONBOARDING MOCKUP IMAGE - PASTE IMGUR URL HERE
+                     ============================================
+                     This should show: Mobile phone screen with ID upload UI
+                     
+                     HOW TO ADD:
+                     1. Go to Imgur and find the onboarding mockup image
+                     2. Right-click → Copy image address
+                     3. Make sure the link ends with .jpg or .png
+                     4. Paste it in the src="..." below
+                ============================================ -->
+                <div class="phone-mockup-container">
+                    <img src="https://i.imgur.com/jwu19nS.jpg" alt="Health Insurance Onboarding Screen">
+                </div>
+            </div>
+
+            <div style="background: #f8fafc; padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h3 style="color: #0f172a; margin-bottom: 20px;">The Copy Strategy</h3>
+                <p style="font-size: 1.15rem; color: #475569; margin-bottom: 15px;">
+                    <strong>Headline:</strong> "Upload a clear photo of your ID"
+                </p>
+                <p style="font-size: 1.15rem; color: #475569; margin-bottom: 15px;">
+                    <strong>Supporting Copy:</strong> "National ID, Driver's License, or Passport"
+                </p>
+                <p style="font-size: 1.15rem; color: #475569;">
+                    <strong>Reassurance:</strong> "We'll verify your coverage in under 60 seconds"
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Results</h2>
+            <p style="font-size: 1.15rem; color: #475569; margin-bottom: 30px;">
+                I successfully designed an onboarding screen that simplified the registration process for new users, reducing friction and boosting registration rates.
+            </p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="result-number">↓</span>
+                    <span class="result-label">Reduced Drop-offs at Step 2</span>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">↑</span>
+                    <span class="result-label">Improved Registration Completion</span>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">60s</span>
+                    <span class="result-label">Clear Verification Timeline</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills-tags">
+                <span class="skill-tag">UX/UI Design</span>
+                <span class="skill-tag">Microcopy</span>
+                <span class="skill-tag">User Experience Optimization</span>
+                <span class="skill-tag">Onboarding Flows</span>
+                <span class="skill-tag">Conversion Optimization</span>
+                <span class="skill-tag">Insurtech</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="index.html" class="cta-button">← Back to All Projects</a>
+        </div>
+    </div>
+</body>
+  </html>
