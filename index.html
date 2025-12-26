@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotoluwa Elijah - Insurtech Copywriter Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Profile Photo Section */
+        .profile-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #3b82f6;
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            background: rgba(59, 130, 246, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(59, 130, 246, 0.6);
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 20px 40px;
+            position: relative;
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .contact-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #3b82f6;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .contact-links a:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .mission-statement {
+            background: rgba(30, 41, 59, 0.6);
+            border-left: 4px solid #3b82f6;
+            padding: 30px;
+            margin: 60px auto;
+            max-width: 900px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            animation: slideInLeft 0.8s ease 0.8s both;
+        }
+
+        .mission-statement h2 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .mission-statement p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-structure {
+            margin: 60px auto;
+            max-width: 1000px;
+        }
+
+        .portfolio-structure h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: #f1f5f9;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .category-card h3 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .category-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .projects-section {
+            margin: 80px auto;
+            max-width: 1200px;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 60px;
+        }
+
+        .project-preview {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-preview:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            padding: 30px;
+        }
+
+        .project-number {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .project-type {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 35px;
+        }
+
+        .project-body p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 30px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-icon {
+            color: #3b82f6;
+            font-size: 1.2rem;
+        }
+
+        .stat-text {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .view-project-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .view-project-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .footer h2 {
+            font-size: 2rem;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ============================================
+             PROFILE PHOTO - PASTE YOUR IMGUR URL HERE
+             ============================================
+             1. Go to Imgur and find your profile photo
+             2. Right-click and copy the DIRECT image link (ends with .jpg or .png)
+             3. Replace the src="..." below with your link
+        ============================================ -->
+        <div class="profile-section">
+            <img src="https://i.imgur.com/3RutosX.jpg" alt="Rotoluwa Elijah" class="profile-photo">
+        </div>
+
+        <header>
+            <div class="logo">Roto Ink</div>
+            <p class="tagline">Rotoluwa Elijah</p>
+            <div class="contact-links">
+                <a href="mailto:rotoelijah15@gmail.com">📧 Email</a>
+                <a href="https://www.linkedin.com/in/elijah-rotoluwa-a761ba363" target="_blank">💼 LinkedIn</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1>Insurtech Copywriter |<br>Fintech Copywriting Specialist</h1>
+            <p class="subtitle">
+                I remove friction from digital insurance products through <span class="highlight">clear, confident copy</span> that helps users understand what's required, trust the process, and take action.
+            </p>
+        </section>
+
+        <section class="mission-statement">
+            <h2>What This Portfolio Shows</h2>
+            <p>
+                Insurance products fail when users feel confused, overwhelmed, or unsure of what to do next. Most drop-offs happen not because users don't want coverage, but because the experience feels unclear or intimidating.
+            </p>
+            <p>
+                I write copy that removes friction from digital insurance products. My work focuses on helping users understand what's required, trust the process, and move confidently through onboarding, registration, and everyday product use.
+            </p>
+        </section>
+
+        <section class="portfolio-structure">
+            <h2>How This Portfolio Is Organized</h2>
+            <p style="text-align: center; color: #94a3b8; margin-bottom: 30px; font-size: 1.1rem;">
+                All projects are Insurtech-focused and grouped by the problems they solve
+            </p>
+
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>User Onboarding & Activation</h3>
+                    <p>Reducing drop-offs during signup, KYC, and verification processes.</p>
+                </div>
+
+                <div class="category-card">
+                    <h3>Conversion & Landing Pages</h3>
+                    <p>Turning interest into completed registrations with persuasive, clear messaging.</p>
+                </div>
+
+                <div class="category-card">
+                    <h3>Product Education & Trust</h3>
+                    <p>Explaining coverage, policies, and processes in plain language that builds confidence.</p>
+                </div>
+
+                <div class="category-card">
+                    <h3>Retention & Engagement</h3>
+                    <p>In-app messages and reminders that keep users active and engaged.</p>
+                </div>
+
+                <div class="category-card">
+                    <h3>Case Studies</h3>
+                    <p>Selected projects with clear problem–solution breakdowns and measurable results.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <p class="section-intro">Real work. Real results. Real impact on conversion and user experience.</p>
+
+            <!-- Project 1 Preview -->
+            <div class="project-preview">
+                <div class="project-header">
+                    <div class="project-number">PROJECT 01</div>
+                    <h3 class="project-title">Digital-First Insurance Hero Section Optimization</h3>
+                    <p class="project-type">Landing Page | Conversion Copy | SaaS Messaging</p>
+                </div>
+                <div class="project-body">
+                    <p>
+                        A digital auto insurance startup needed clearer messaging to help users understand how digital-first coverage works. I redesigned the hero section with benefit-driven copy that reduced confusion and increased CTA clicks by 40%.
+                    </p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-icon">📈</span>
+                            <span class="stat-text">40% increase in CTA clicks</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icon">⏱️</span>
+                            <span class="stat-text">3-minute registration promise</span>
+                        </div>
+                    </div>
+                    <a href="project1-auto-insurance.html" class="view-project-btn">View Full Case Study →</a>
+                </div>
+            </div>
+
+            <!-- Project 2 Preview -->
+            <div class="project-preview">
+                <div class="project-header">
+                    <div class="project-number">PROJECT 02</div>
+                    <h3 class="project-title">Reducing Onboarding Drop-Offs for Health Insurtech</h3>
+                    <p class="project-type">UX/UI Design | Microcopy | Onboarding</p>
+                </div>
+                <div class="project-body">
+                    <p>
+                        Users were dropping off at Step 2 of onboarding due to unclear document requirements. I created clearer microcopy and designed an intuitive ID upload screen that reduced friction and improved completion rates.
+                    </p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-icon">✓</span>
+                            <span class="stat-text">Reduced Step 2 drop-offs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icon">⚡</span>
+                            <span class="stat-text">60-second verification promise</span>
+                        </div>
+                    </div>
+                    <a href="project2-health-onboarding.html" class="view-project-btn">View Full Case Study →</a>
+                </div>
+            </div>
+
+            <!-- Project 3 Preview -->
+            <div class="project-preview">
+                <div class="project-header">
+                    <div class="project-number">PROJECT 03</div>
+                    <h3 class="project-title">Making Parametric Insurance Easy to Understand</h3>
+                    <p class="project-type">Educational Content | Technical Writing | Content Strategy</p>
+                </div>
+                <div class="project-body">
+                    <p>
+                        Parametric insurance was too technical for the target audience. I created a 7-article educational series that transformed complex concepts into clear, accessible content with real-world examples and visual storytelling.
+                    </p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-icon">📚</span>
+                            <span class="stat-text">7 comprehensive articles</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-icon">🌍</span>
+                            <span class="stat-text">Global examples & use cases</span>
+                        </div>
+                    </div>
+                    <a href="project3-parametric-education.html" class="view-project-btn">View Full Case Study →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <h2>Let's Work Together</h2>
+            <p>Ready to make your insurance product clearer and more conversion-focused?</p>
+            <div class="contact-links">
+                <a href="mailto:rotoelijah15@gmail.com">📧 Get In Touch</a>
+                <a href="https://www.linkedin.com/in/elijah-rotoluwa-a761ba363" target="_blank">💼 Connect on LinkedIn</a>
+            </div>
+            <p style="color: #64748b; font-size: 0.9rem; margin-top: 40px;">
+                © 2024 Rotoluwa Elijah (Roto Ink). All rights reserved.
+            </p>
+        </footer>
+    </div>
+</body>
+  </html>
